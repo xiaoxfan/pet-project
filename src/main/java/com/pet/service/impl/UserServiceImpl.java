@@ -156,7 +156,7 @@ public class UserServiceImpl implements UserService {
 		user.setUsername(userDto.getUsername());
 		user.setEmail(userDto.getEmail());
 		user.setDateCreated(new Timestamp(System.currentTimeMillis()));
-		user.activated(false);
+		user.activated(true);
 		user.setRoles(User.USER);
 
 		// save new user and get number of affected row

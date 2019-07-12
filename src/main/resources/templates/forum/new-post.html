@@ -28,12 +28,12 @@
 	                                </div>
 									<div class="row form-group">
 										<div id="editor">
-											<p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>
+
 										</div>
 									</div>
 	                                <div class="row form-group">
 	                                    <span class="pull-left" th:hidden="${isQuickNewPost} ? 'false' : 'true'">
-		                                    <select th:field="*{category}" class="selectpicker" data-live-search="true">
+		                                    <select th:field="*{category}" class="selectpicker" data-live-search="false">
 		                                        <option style="display:none" value=""> -- 请选择分类 -- </option>
 		                                        <option th:each="category:${categories}"
 		                                                th:value="${category.name}"
@@ -51,10 +51,10 @@
 	                </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">消息1</div>
-                        <div class="panel-body">消息内容1</div>
-                    </div>
+                    <!--<div class="panel panel-default">-->
+                        <!--<div class="panel-heading">消息1</div>-->
+                        <!--<div class="panel-body">消息内容1</div>-->
+                    <!--</div>-->
                 </div>
             </div>
         </div>

@@ -23,8 +23,8 @@ public class StorageServiceImpl implements StorageService {
 
 	private static final Logger logger = LoggerFactory.getLogger(StorageServiceImpl.class);
 
-	@Value("${resource.staticResourceLocation}")
-	private String staticResourceLocation;
+	@Value("${resource.avatarResourceLocation}")
+	private String avatarResourceLocation;
 
 	@Autowired
 	private UserMapper userMapper;
@@ -42,11 +42,11 @@ public class StorageServiceImpl implements StorageService {
 				throw new StorageException(
 						"Cannot store file with relative path outside current directory " + filename);
 			}
-			Path dir = Paths.get(this.staticResourceLocation + "/" + username);
+			Path dir = Paths.get(this.avatarResourceLocation + "/" + username);
 			if (Files.notExists(dir)) {
 				Files.createDirectory(dir);
 			}
-			Path avatarLocation = Paths.get(this.staticResourceLocation + "/" + username).resolve(filename);
+			Path avatarLocation = Paths.get(this.avatarResourceLocation + "/" + username).resolve(filename);
 			Files.copy(file.getInputStream(), avatarLocation, StandardCopyOption.REPLACE_EXISTING);
 			logger.info("Saved file to >> " + avatarLocation);
 
@@ -62,7 +62,7 @@ public class StorageServiceImpl implements StorageService {
 	@Override
 	public void init() {
 		try {
-			Files.createDirectories(Paths.get(this.staticResourceLocation));
+			Files.createDirectories(Paths.get(this.avatarResourceLocation));
 		} catch (Exception e) {
 			throw new StorageException("Could not initialize storage", e);
 		}

@@ -8,11 +8,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 public class StaticResourceConfig extends WebMvcConfigurerAdapter {
 
-	@Value("${resource.staticResourceLocation}")
-	private String staticResourceLocation;
+	@Value("${resource.avatarResourceLocation}")
+	private String avatarResourceLocation;
+    @Value("${resource.postResourceLocation}")
+    private String postResourceLocation;
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/avatar/**").addResourceLocations("file:" + staticResourceLocation);
-		registry.addResourceHandler("/upload/**").addResourceLocations("file:" + staticResourceLocation);
+		registry.addResourceHandler("/avatar/**").addResourceLocations("file:" + avatarResourceLocation);
+		registry.addResourceHandler("/upload/**").addResourceLocations("file:" + postResourceLocation);
 	}
 }

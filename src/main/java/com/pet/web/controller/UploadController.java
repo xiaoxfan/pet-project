@@ -31,7 +31,7 @@ public class UploadController {
             if(suffix==null||"".equals(suffix)){return "上传文件没有后缀，无法识别";}
 
             fileName = System.currentTimeMillis()+suffix;
-            String saveFileName = appConfig.getFilepath()+"/post/"+fileName;
+            String saveFileName = appConfig.getFilepath()+fileName;
             System.out.println(saveFileName);
             File dest = new File(saveFileName);
             System.out.println(dest.getParentFile().getPath());

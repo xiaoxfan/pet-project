@@ -28,7 +28,7 @@
 		                </div>
 		                <div class="media-body">
                             <div class="media-heading">
-                                <a class="post-title" th:href="@{/post/{postId}(postId=${post.id})}" th:text="${post.title}">title</a>
+                                <a style="font-weight: 700;" class="post-title" th:href="@{/post/{postId}(postId=${post.id})}" th:text="${post.title}">title</a>
                             </div>
                             <a class="post-tag"
                                     th:href="@{/category/{categoryName}(categoryName=${post.category.name})}"
